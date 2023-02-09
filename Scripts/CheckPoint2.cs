@@ -18,11 +18,13 @@ public class CheckPoint2 : MonoBehaviour
 
     int Div(int x,int y)
     {
-        if (y == 0)
+        try
         {
-            Console.WriteLine("Cannot divide by Zero");
-            return 0;
+            return x / y;
+        }catch(DivideByZeroException e)
+        {
+            Console.WriteLine(e.Message);
+            return -1;
         }
-        return x / y;
     }
 }
