@@ -55,6 +55,7 @@ public class BallMovement : MonoBehaviour
         }
         else if (collision.tag == "RightCollider")
         {
+
             StartCoroutine(AwaitCouroutine());
             ScoringSystem.instance.PlayerScore++;
             ScoringSystem.instance.PlayerScoreText.text = ScoringSystem.instance.PlayerScore.ToString();
