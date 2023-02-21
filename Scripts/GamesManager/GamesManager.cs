@@ -11,10 +11,10 @@ using static UnityEditor.Progress;
 
 public class GamesManager : MonoBehaviour
 {
+    
     public static GamesManager instance;
 
-
-
+    Button btn;
     TMP_Dropdown dropdown;
 
 
@@ -25,8 +25,7 @@ public class GamesManager : MonoBehaviour
 
     private void Start()
     {
-
-        dropdown= GetComponent<TMP_Dropdown>();
+        dropdown = GetComponent<TMP_Dropdown>();
 
         dropdown.options.Clear();
 
@@ -40,6 +39,9 @@ public class GamesManager : MonoBehaviour
                 dropdown.options.Add(new TMP_Dropdown.OptionData() { text= scenes[i] });
             }
         }
+
+        
+        btn.onClick.AddListener(() => SceneManager.LoadScene(dropdown.options[dropdown.value].text, LoadSceneMode.Single));  
     }
 
 
